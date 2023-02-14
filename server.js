@@ -27,10 +27,10 @@ app.use('/api/users',userRoutes)
 app.use('/api/shipping',shippingRoutes)
 app.use('/api/order',orderRoutes)
 
-app.all('*', function(req, res) {
+/*app.all('*', function(req, res) {
     res.redirect("/api/products/");
   });
-
+*/
 
 
 app.get("*", function (req,res) {
