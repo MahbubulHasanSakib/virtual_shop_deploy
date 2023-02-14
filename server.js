@@ -8,6 +8,9 @@ const userRoutes=require('./routes/userRoutes')
 const shippingRoutes=require('./routes/shippingRoutes')
 const orderRoutes=require('./routes/orderRoutes')
 dotenv.config()
+
+const PORT=process.env.PORT||5000;
+
 const app=express()
 app.use(cors())
 app.use(express.static(path.join(__dirname,'/public')));
@@ -19,7 +22,7 @@ mongoose.connect(process.env.MONGOURI, { useNewUrlParser: true, useUnifiedTopolo
 .then(()=>console.log('mongoose is connected'))
 .catch((err)=>console.log(err))
 
-app.use(cors())
+//app.use(cors())
 
 ///routes
 app.use('/api/products',productRoutes)
@@ -39,7 +42,7 @@ app.get("*", function (req,res) {
 
 
 
-const PORT=process.env.PORT;
+
 
 app.listen(PORT,(err)=>
 {
